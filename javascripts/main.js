@@ -3,35 +3,35 @@
 //Creating our original Sandwich IIFE
 var Languages = (function() {
 
-	var languageSentence = function(languageSet) {
-		var myLanguage = "";
-		languageSet.forEach(function(key) {
-			myLanguage += languageSet[key] + " ";
-			if (key === myLanguage.length) {
-				myLanguage += ".";
-			}
-			return myLanguage;
-		});
-	};
+    var languageSentence = function(languageSet) {
+        var myLanguage = "";
+        languageSet.forEach(function(key) {
+            myLanguage += languageSet[key] + " ";
+            if (key === myLanguage.length) {
+                myLanguage += ".";
+            }
+            return myLanguage;
+        });
+    };
 
-	return {
-		getFrench: function() {
-			outputField.innerHTML = languageSentence(frenchWords);
-			return outputField;
-		},
-		getSpanish: function() {
-			outputField.innerHTML = languageSentence(spanishWords);
-			return outputField;
-		},
-		getGerman: function() {
-			outputField.innerHTML = languageSentence(germanWords);
-			return outputField;
-		},
-		getPortuguese: function() {
-			outputField.innerHTML = languageSentence(portugueseWords);
-			return outputField;
-		}
-	};
+    return {
+        getFrench: function() {
+            outputField.innerHTML = languageSentence(frenchWords);
+            return outputField;
+        },
+        getSpanish: function() {
+            outputField.innerHTML = languageSentence(spanishWords);
+            return outputField;
+        },
+        getGerman: function() {
+            outputField.innerHTML = languageSentence(germanWords);
+            return outputField;
+        },
+        getPortuguese: function() {
+            outputField.innerHTML = languageSentence(portugueseWords);
+            return outputField;
+        }
+    };
 })();
 
 
@@ -51,7 +51,7 @@ var outputField = document.getElementById("output");
 //this function will be called through change on text input
 //it updates the user input to match
 function updateInput(event) {
-	userInput += event.target.value;
+    userInput += event.target.value;
 }
 
 //adding event Listseners to each language option 
@@ -62,4 +62,3 @@ portugueseSelect.addEventListener("change", Languages.getPortuegese);
 
 //adding event listsner to input, updates the userInput on change
 // inputField.addeventListener("change", updateInput);
-
