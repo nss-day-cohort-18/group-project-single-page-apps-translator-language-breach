@@ -2,7 +2,7 @@
 
 var Languages = (function(dictionary){
 
-	var englishToGerman = {
+	var germanWords = {
 		merry: "fröhlich",
 		christmas: "Weihnachten",
 		and: "und",
@@ -13,23 +13,8 @@ var Languages = (function(dictionary){
 	};
 
 	dictionary.setGerman = function(word){
-		var engWord = Object.keys(word);
-		var germanWord = Object.values(word);
-		englishToGerman[engWord[0]] = germanWord[0];
-
-		console.log("New Dictionary: ", englishToGerman);
-
-		return englishToGerman;
+		return germanWords[word];
 	};
 	return dictionary;
 
 })(Languages);
-
-
-
-// {"merry":"god", 
-// "christmas":"jul", 
-// "and":"och", 
-// "happy":"gott", 
-// "new":"nytt", 
-// "year":"år"}
