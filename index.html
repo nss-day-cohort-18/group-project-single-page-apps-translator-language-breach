@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <title>Language Breach</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
@@ -10,31 +11,35 @@
 
   <header>
     <h1>Language Breach</h1>
+    <h2>Christmas Card Translation Tool</h2>
   </header>
 
-  <div id="inputWrap">
-  	<select id="selectField1">
-      <option value="english">English</option>
-  		<option value="spanish">Spanish</option>
-  		<option value="french">French</option>
-  		<option value="portuguese">Portuguese</option>
-  		<option value="german">German</option>
-  	</select>
-    <br><br>
-    Gimme a word: <br>
-    <textarea id="userText"></textarea>
-  </div>
+  <div id="parent">
+    <div class="child">
+    	<h4>Translate From:</h4>
+      <select id="selectField1">
+        <option value="english">English</option>
+    		<option value="spanish">Spanish</option>
+    		<option value="french">French</option>
+    		<option value="portuguese">Portuguese</option>
+    		<option value="german">German</option>
+    	</select>
+      <h4>Gimme a word:</h4>
+      <textarea id="userText"></textarea>
+    </div>
 
-  <div id="outputwrap">
-    <select id="selectField2">
-      <option value="spanish">Spanish</option>
-      <option value="french">French</option>
-      <option value="portuguese">Portuguese</option>
-      <option value="german">German</option>
-    </select>
-    <div id="output"></div>
+    <div class="child">
+      <h4>Translate To:</h4>
+      <select id="selectField2">
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+        <option value="portuguese">Portuguese</option>
+        <option value="german">German</option>
+      </select>
+      <h4>Translation:</h4>
+      <textarea id="output"></textarea>
+    </div>
   </div>
-
 
   <input id="submitButton" type="button" value="Translate">
 
