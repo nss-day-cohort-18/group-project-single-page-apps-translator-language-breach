@@ -6,10 +6,13 @@ var outputField = document.getElementById("output");
 var submitButton = document.getElementById("submitButton");
 //User text input
 var textInput = "";
-//option field
-var select = document.getElementById("selectField");
+//option fields
+var select1 = document.getElementById("selectField1");
+var select2 = document.getElementById("selectField2");
+
 //what option field is set to
-var value = select.options[select.selectedIndex].value;;
+var value1 = select1.options[select1.selectedIndex].value;
+var value2 = select2.options[select2.selectedIndex].value;
 
 
 //Creating our original Sandwich IIFE
@@ -42,21 +45,21 @@ inputField.addEventListener("change", function(){
 });
 
 //updating the select option value as it changes
-select.addEventListener("change", function() {
-    value = select.options[select.selectedIndex].value;
-    return value;
+select1.addEventListener("change", function() {
+    value1 = select1.options[select1.selectedIndex].value;
+    return value1;
 });
 
 submitButton.addEventListener("click", function() {
     if (textInput === "") {
         alert("Please input a value.")
-    } else if (value === "spanish") {
+    } else if (value1 === "spanish") {
         Languages.getSpanish(textInput);
-    } else if (value === "french") {
+    } else if (value1 === "french") {
         Languages.getFrench(textInput);                          
-    } else if (value === "portuguese") {
+    } else if (value1 === "portuguese") {
         Languages.getPortuguese(textInput);
-    } else if (value === "german") {
+    } else if (value1 === "german") {
         Languages.getGerman(textInput);
     }
 });

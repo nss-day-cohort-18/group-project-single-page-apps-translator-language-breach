@@ -12,24 +12,30 @@
     <h1>Language Breach</h1>
   </header>
 
+  <div id="inputWrap">
+  	<select id="selectField1">
+  		<option value="spanish">Spanish</option>
+  		<option value="french">French</option>
+  		<option value="portuguese">Portuguese</option>
+  		<option value="german">German</option>
+  	</select>
+    <br><br>
+    Gimme a word: <br>
+    <textarea id="userText"></textarea>
+  </div>
 
-	<select id="selectField">
-		<option id="spanish" value="spanish">Spanish</option>
-		<option id="french" value="french">French</option>
-		<option id="portuguese" value="portuguese">Portuguese</option>
-		<option id="german" value="german">German</option>
-	</select>
-  <br><br>
-  Gimme a word: <br>
-  <input id="userText" type="text" name="Input">
+  <div id="outputwrap">
+    <select id="selectField2">
+      <option value="spanish">Spanish</option>
+      <option value="french">French</option>
+      <option value="portuguese">Portuguese</option>
+      <option value="german">German</option>
+    </select>
+    <div id="output"></div>
+  </div>
 
-  <br>
 
   <input id="submitButton" type="button" value="Translate">
-
-  <hr>
-
-  <div id="output"></div>
 
 
 <script type="text/javascript" src="javascripts/main.js"></script>
