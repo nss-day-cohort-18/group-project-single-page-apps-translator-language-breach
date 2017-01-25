@@ -12,30 +12,38 @@
     <h1>Language Breach</h1>
   </header>
 
+  <div id="inputWrap">
+  	<select id="selectField1">
+      <option value="english">English</option>
+  		<option value="spanish">Spanish</option>
+  		<option value="french">French</option>
+  		<option value="portuguese">Portuguese</option>
+  		<option value="german">German</option>
+  	</select>
+    <br><br>
+    Gimme a word: <br>
+    <textarea id="userText"></textarea>
+  </div>
 
-	<select>
-		<option id="spanish" value="spanish">Spanish</option>
-		<option id="french" value="french">French</option>
-		<option id="portuguese" value="portugese">Portugese</option>
-		<option id="german" value="german">German</option>
-	</select>
-  <br><br>
-
-  <textarea>
-
-	</textarea>
-
-  <br>
-
-  <input type="button" id="submitButton" value="Translate">
-
-  <hr>
-
-  <div id="output"></div>
+  <div id="outputwrap">
+    <select id="selectField2">
+      <option value="spanish">Spanish</option>
+      <option value="french">French</option>
+      <option value="portuguese">Portuguese</option>
+      <option value="german">German</option>
+    </select>
+    <div id="output"></div>
+  </div>
 
 
-  <script type="text/javascript" src="javascripts/main.js"></script>
-  <script type="text/javascript" src="./javascripts/spanish.js"></script>
+  <input id="submitButton" type="button" value="Translate">
+
+
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="javascripts/spanish.js"></script>
+<script type="text/javascript" src="javascripts/french.js"></script>
+<script type="text/javascript" src="javascripts/portuguese.js"></script>
+<script type="text/javascript" src="javascripts/german.js"></script>
 </body>
 
 </html>

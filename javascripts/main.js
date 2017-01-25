@@ -1,64 +1,77 @@
 "use strict";
+//grabbing input and output fields with submit button
+var inputField = document.getElementById("userText");
+var outputField = document.getElementById("output");
+//Translate Button
+var submitButton = document.getElementById("submitButton");
+//User text input
+var textInput = "";
+//option fields
+var select1 = document.getElementById("selectField1");
+var select2 = document.getElementById("selectField2");
+
+//what option field is set to
+var value1 = select1.options[select1.selectedIndex].value;
+var value2 = select2.options[select2.selectedIndex].value;
+
 
 //Creating our original Sandwich IIFE
 var Languages = (function() {
 
-    var languageSentence = function(languageSet) {
-        var myLanguage = "";
-        languageSet.forEach(function(key) {
-            myLanguage += languageSet[key] + " ";
-            if (key === myLanguage.length) {
-                myLanguage += ".";
-            }
-            return myLanguage;
-        });
-    };
-
     return {
-        getFrench: function() {
-            outputField.innerHTML = languageSentence(frenchWords);
-            return outputField;
-        },
-        getSpanish: function() {
-            outputField.innerHTML = languageSentence(spanishWords);
-            return outputField;
-        },
-        getGerman: function() {
-            outputField.innerHTML = languageSentence(germanWords);
-            return outputField;
-        },
-        getPortuguese: function() {
-            outputField.innerHTML = languageSentence(portugueseWords);
-            return outputField;
+        fullTranslate: function(text) {
+            if (value2 === "spanish") {
+                output.innerHTML = Languages.setSpanish(text);
+            } else if (value2 === "french") {
+                output.innerHTML = Languages.setFrench(text);                          
+            } else if (value2 === "portuguese") {
+                output.innerHTML = Languages.setPortuguese(text);
+            } else if (value2 === "german") {
+                output.innerHTML = Languages.setGerman(text);
+            } 
         }
     };
 })();
 
 
-//grabbing each option element
-var frenchSelect = document.getElementById("french");
-var spanishSelect = document.getElementById("spanish");
-var germanSelect = document.getElementById("german");
-var portugueseSelect = document.getElementById("portuguese");
+//updating textInut value as change
+inputField.addEventListener("change", function(){
+    textInput = inputField.value;
+});
 
-//establishing userInput as they type through keyup
-var userInput = "";
+//updating the select option's values as it changes
+select1.addEventListener("change", function() {
+    value1 = select1.options[select1.selectedIndex].value;
+    return value1;
+});
+select2.addEventListener("change", function() {
+    value2 = select2.options[select2.selectedIndex].value;
+    return value2;
+});
 
-//grabbing input and output fields
-var inputField = document.getElementsByTagName("input")[0];
-var outputField = document.getElementById("output");
+submitButton.addEventListener("click", function() {
+    if (textInput === "") {
+        alert("Please input a value.")
+    } else if (value1 === "english") {
+        Languages.fullTranslate(textInput);
+    } else if (value1 === "spanish") {
+        Languages.fullTranslate(Languages.getSpanishName(textInput));       
+    } else if (value1 === "french") {
+        Languages.fullTranslate(Languages.getFrenchName(textInput));
+    } else if (value1 === "portuguese") {
+        Languages.fullTranslate(Languages.getPortugueseName(textInput));
+    } else if (value1 === "german") {
+        Languages.fullTranslate(Languages.getGermanName(textInput));       
+    };
+});
 
-//this function will be called through change on text input
-//it updates the user input to match
-function updateInput(event) {
-    userInput += event.target.value;
-}
 
-//adding event Listseners to each language option 
-spanishSelect.addEventListener("change", Languages.getSpanish);
-frenchSelect.addEventListener("change", Languages.getFrench);
-germanSelect.addEventListener("change", Languages.getGerman);
-portugueseSelect.addEventListener("change", Languages.getPortuegese);
 
-//adding event listsner to input, updates the userInput on change
-// inputField.addeventListener("change", updateInput);
+
+
+
+
+
+
+
+
