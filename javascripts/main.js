@@ -1,59 +1,73 @@
 "use strict";
+//grabbing input and output fields with submit button
+var inputField = document.getElementById("userText");
+var outputField = document.getElementById("output");
+//Translate Button
+var submitButton = document.getElementById("submitButton");
+//User text input
+var textInput = "";
+//option field
+var select = document.getElementById("selectField");
+//what option field is set to
+var value = select.options[select.selectedIndex].value;;
+
 
 //Creating our original Sandwich IIFE
 var Languages = (function() {
 
-    // var languageSentence = function(languageSet) {
-    //     var myLanguage = "";
-    //     languageSet.forEach(function(key) {
-    //         myLanguage += languageSet[key] + " ";
-    //         if (key === myLanguage.length) {
-    //             myLanguage += ".";
-    //         }
-    //         return myLanguage;
-    //     });
-    // };
-
     return {
-        getFrench: function() {
-            outputField.innerHTML = languageSentence(frenchWords);
+        getFrench: function(text) {
+            outputField.innerHTML = Languages.setFrench(text.toLowerCase());
             return outputField;
         },
-        getSpanish: function() {
-            outputField.innerHTML = languageSentence(spanishWords);
+        getSpanish: function(text) {
+            outputField.innerHTML = Languages.setSpanish(text.toLowerCase());
             return outputField;
         },
-        getGerman: function() {
-            outputField.innerHTML = languageSentence(germanWords);
+        getGerman: function(text) {
+            outputField.innerHTML = Languages.setGerman(text.toLowerCase());
             return outputField;
         },
-        getPortuguese: function() {
-            outputField.innerHTML = languageSentence(portugueseWords);
+        getPortuguese: function(text) {
+            outputField.innerHTML = Languages.setPortuguese(text.toLowerCase());
             return outputField;
         }
     };
 })();
 
 
-//grabbing each option element
-var frenchSelect = document.getElementById("french");
-var spanishSelect = document.getElementById("spanish");
-var germanSelect = document.getElementById("german");
-var portugueseSelect = document.getElementById("portuguese");
+//updating textInut value as change
+inputField.addEventListener("change", function(){
+    textInput = inputField.value;
+});
 
-//establishing userInput as they type through keyup
-var userInput = "";
+//updating the select option value as it changes
+select.addEventListener("change", function() {
+    value = select.options[select.selectedIndex].value;
+    return value;
+});
 
-//grabbing input and output fields
-var inputField = document.getElementsByTagName("input")[0];
-var outputField = document.getElementById("output");
+submitButton.addEventListener("click", function() {
+    if (textInput === "") {
+        alert("Please input a value.")
+    } else if (value === "spanish") {
+        Languages.getSpanish(textInput);
+    } else if (value === "french") {
+        Languages.getFrench(textInput);                          
+    } else if (value === "portuguese") {
+        Languages.getPortuguese(textInput);
+    } else if (value === "german") {
+        Languages.getGerman(textInput);
+    }
+});
 
 
-//adding event Listseners to each language option 
-spanishSelect.addEventListener("change", Languages.getSpanish);
-frenchSelect.addEventListener("change", Languages.getFrench);
-germanSelect.addEventListener("change", Languages.getGerman);
-portugueseSelect.addEventListener("change", Languages.getPortuegese);
 
-//adding event listsner to input, updates the userInput on change
-// inputField.addeventListener("change", updateInput);
+
+
+
+
+
+
+
+
