@@ -1,14 +1,33 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   margin: 3em;
+  background-color: #1F2421;
+  color: #DCE1DE;
 }
 
-select, input {
-  font-size: 1em;
+#translate-button {
+  align-self: center;
+  margin-right: 4em;
+}
+
+input, select {
+  font-size: .8em;
 }
 
 input {
-  text-align: center;
+  background-color: #26C485;
+  color: #216869;
+  border: 2px solid #216869;
+  font-size: 1.5em;
+  border-radius: 5px;
+}
+
+select {
+  background-color: lightgray;
+  color: #216869;
+  border: 3px solid #26C485;
+  font-size: 1.5em;
+  border-radius: 5px;
 }
 
 #parent {
@@ -19,6 +38,20 @@ input {
 }
 
 .child {
-  margin-right: 2em;
+  margin-right: 4em;
   margin-bottom: 2em;
+}
+
+#output {
+  background-color: lightgray;
+  border: 3px solid darkgray;
+}
+
+#userText {
+  border: 3px solid #216869;
+}
+
+textarea {
+  font-size: 1.5em;
+  color: #216869;
 }
