@@ -16,5 +16,14 @@ var Languages = (function(dictionary) {
   dictionary.setSpanish = function(word) {
     return spanishWords[word];
   }
+  dictionary.getSpanishName = function(word) {
+    var valsArray = Object.values(spanishWords);
+    var keysArray = Object.keys(spanishWords);
+    for (var arrayNum = 0; arrayNum < valsArray.length; arrayNum++) {
+      if (word === valsArray[arrayNum]) {
+        return keysArray[arrayNum];
+      }
+    }
+  };
   return dictionary;
 }(Languages));

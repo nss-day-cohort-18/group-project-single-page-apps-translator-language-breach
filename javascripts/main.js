@@ -19,21 +19,16 @@ var value2 = select2.options[select2.selectedIndex].value;
 var Languages = (function() {
 
     return {
-        getFrench: function(text) {
-            outputField.innerHTML = Languages.setFrench(text.toLowerCase());
-            return outputField;
-        },
-        getSpanish: function(text) {
-            outputField.innerHTML = Languages.setSpanish(text.toLowerCase());
-            return outputField;
-        },
-        getGerman: function(text) {
-            outputField.innerHTML = Languages.setGerman(text.toLowerCase());
-            return outputField;
-        },
-        getPortuguese: function(text) {
-            outputField.innerHTML = Languages.setPortuguese(text.toLowerCase());
-            return outputField;
+        fullTranslate: function(text) {
+            if (value2 === "spanish") {
+                output.innerHTML = Languages.setSpanish(text);
+            } else if (value2 === "french") {
+                output.innerHTML = Languages.setFrench(text);                          
+            } else if (value2 === "portuguese") {
+                output.innerHTML = Languages.setPortuguese(text);
+            } else if (value2 === "german") {
+                output.innerHTML = Languages.setGerman(text);
+            } 
         }
     };
 })();
@@ -44,24 +39,30 @@ inputField.addEventListener("change", function(){
     textInput = inputField.value;
 });
 
-//updating the select option value as it changes
+//updating the select option's values as it changes
 select1.addEventListener("change", function() {
     value1 = select1.options[select1.selectedIndex].value;
     return value1;
+});
+select2.addEventListener("change", function() {
+    value2 = select2.options[select2.selectedIndex].value;
+    return value2;
 });
 
 submitButton.addEventListener("click", function() {
     if (textInput === "") {
         alert("Please input a value.")
+    } else if (value1 === "english") {
+        Languages.fullTranslate(textInput);
     } else if (value1 === "spanish") {
-        Languages.getSpanish(textInput);
+        Languages.fullTranslate(Languages.getSpanishName(textInput));       
     } else if (value1 === "french") {
-        Languages.getFrench(textInput);                          
+        Languages.fullTranslate(Languages.getFrenchName(textInput));
     } else if (value1 === "portuguese") {
-        Languages.getPortuguese(textInput);
+        Languages.fullTranslate(Languages.getPortugueseName(textInput));
     } else if (value1 === "german") {
-        Languages.getGerman(textInput);
-    }
+        Languages.fullTranslate(Languages.getGermanName(textInput));       
+    };
 });
 
 
