@@ -3,16 +3,16 @@
 //Creating our original Sandwich IIFE
 var Languages = (function() {
 
-    var languageSentence = function(languageSet) {
-        var myLanguage = "";
-        languageSet.forEach(function(key) {
-            myLanguage += languageSet[key] + " ";
-            if (key === myLanguage.length) {
-                myLanguage += ".";
-            }
-            return myLanguage;
-        });
-    };
+    // var languageSentence = function(languageSet) {
+    //     var myLanguage = "";
+    //     languageSet.forEach(function(key) {
+    //         myLanguage += languageSet[key] + " ";
+    //         if (key === myLanguage.length) {
+    //             myLanguage += ".";
+    //         }
+    //         return myLanguage;
+    //     });
+    // };
 
     return {
         getFrench: function() {
@@ -48,11 +48,6 @@ var userInput = "";
 var inputField = document.getElementsByTagName("input")[0];
 var outputField = document.getElementById("output");
 
-//this function will be called through change on text input
-//it updates the user input to match
-function updateInput(event) {
-    userInput += event.target.value;
-}
 
 //adding event Listseners to each language option 
 spanishSelect.addEventListener("change", Languages.getSpanish);
